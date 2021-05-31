@@ -58,7 +58,7 @@ def alexnet():
     model.add(Dropout(0.4))
 
     # Output Layer
-    model.add(Dense(10))
+    model.add(Dense(1))
     model.add(BatchNormalization())
     model.add(Activation('softmax'))
 

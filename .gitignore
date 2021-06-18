@@ -3,3 +3,6 @@ venv
 dataset
 test/*/*.png
 train/*/*.png
+train-small
+test-small
+train-small.py

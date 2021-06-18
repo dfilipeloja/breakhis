@@ -1,5 +1,5 @@
 from keras.models import Sequential
-from keras.layers import Dense, Activation, Dropout, Flatten, Conv2D, MaxPooling2D
+from keras.layers import Dense, Activation, Dropout, Flatten, Conv2D, MaxPooling2D, MaxPool2D
 from keras.layers.normalization import BatchNormalization
 
 
@@ -7,7 +7,7 @@ def alexnet():
     model = Sequential()
 
     # 1st Convolutional Layer
-    model.add(Conv2D(filters=96, input_shape=(32, 32, 3), kernel_size=(11, 11), strides=(4, 4), padding='same'))
+    model.add(Conv2D(filters=96, input_shape=(224, 147, 3), kernel_size=(11, 11), strides=(4, 4), padding='same'))
     model.add(BatchNormalization())
     model.add(Activation('relu'))
     model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2), padding='same'))
@@ -64,4 +64,23 @@ def alexnet():
 
     # Model Summary
     # model.summary()
+    return model
+
+
+def simple_cnn():
+    model = Sequential()
+    model.add(Conv2D(32, 3, padding="same", activation="relu", input_shape=(224, 147, 3)))
+    model.add(MaxPool2D())
+
+    model.add(Conv2D(32, 3, padding="same", activation="relu"))
+    model.add(MaxPool2D())
+
+    model.add(Conv2D(64, 3, padding="same", activation="relu"))
+    model.add(MaxPool2D())
+    model.add(Dropout(0.4))
+
+    model.add(Flatten())
+    model.add(Dense(128, activation="relu"))
+    model.add(Dense(1, activation="softmax"))
+
     return model

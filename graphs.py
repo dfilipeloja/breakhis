@@ -13,7 +13,7 @@ class Graph:
         plt.xlabel('epoch')
         plt.ylabel('accuracy')
         plt.legend(loc="lower right")
-        plt.savefig(os.path.join(dir, 'accuracy_epochs_graph.png'))
+        plt.savefig(os.path.join(dir, 'accuracy_epochs_graph'+ str(datetime.now().strftime('%Y_%m_%d_%H_%M_%S')) +'.png'))
 
         plt.plot(model_fit.history['loss'], "-", label="loss")
         plt.plot(model_fit.history['val_loss'], "-", label="val_loss")

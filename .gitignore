@@ -8,3 +8,4 @@ train-small
 test-small
 train-small.py
 models/*.h5
+__pycache__

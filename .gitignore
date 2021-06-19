@@ -1,4 +1,5 @@
 venv
+.venv
 .idea
 dataset
 test/*/*.png

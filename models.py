@@ -87,7 +87,7 @@ class Models:
         model.add(Dense(1, activation='sigmoid', name='sigmoid'))
 
         model.compile(loss='binary_crossentropy',
-                      optimizer=optimizers.RMSprop(lr=1e-5),
+                      optimizer=optimizers.RMSprop(learning_rate=1e-5),
                       metrics=['accuracy'])
 
         return model

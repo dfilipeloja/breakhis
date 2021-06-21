@@ -92,7 +92,7 @@ def vgg19_train():
     #
     # vgg19_model.save(os.path.join(models_dir, 'breakhis_vgg19_model.h5'))
     # Graph.plot_accuracy_loss(model_fit, results_dir, 'vgg19_model')
-    #Y_pred = vgg19_model.predict(test_generator, num_test // batch_size+1)
+    Y_pred = vgg19_model.predict(test_generator, num_test // batch_size+1)
     #y_pred = np.argmax(Y_pred, axis=1)
     #cm = confusion_matrix(test_generator.classes, y_pred)
     #cm = confusion_matrix()

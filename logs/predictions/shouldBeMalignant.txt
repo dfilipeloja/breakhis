@@ -1,0 +1,3 @@
+<class 'numpy.ndarray'>
+(1, 400, 400, 3)
+[[0.99941933]] ./validation/malignant/SOB_M_DC-14-3909-200-018.png is malignant

@@ -1,6 +1,8 @@
+import numpy as np
 from keras.models import load_model
 from keras_preprocessing.image import ImageDataGenerator
 from sklearn.metrics import confusion_matrix
+from keras.preprocessing import image
 
 test_datagen = ImageDataGenerator(rescale=1.0 / 255)
 test_dir = './validation'
@@ -13,7 +15,22 @@ test_generator = test_datagen.flow_from_directory(
 
 model = load_model('./models/breakhis_vgg19_model.h5')
 
-Y_pred = model.predict(test_generator)
-cm = confusion_matrix(test_generator.classes, Y_pred)
+model.compile(loss='binary_crossentropy',
+                  optimizer = 'adam',
+                  metrics=['accuracy'])
 
-print(cm)
+filename = './validation/malignant/SOB_M_DC-14-3909-200-018'
+
+img = image.load_img(
+        filename,
+        target_size=(400, 400))
+
+x = image.img_to_array(img)
+x = np.expand_dims(x, axis=0)
+
+pred = model.predict(x[0:])
+
+if pred >= 0.5:
+    print(pred, f'{filename} is malignant')
+else:
+    print(pred, f'{filename} is benign')

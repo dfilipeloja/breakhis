@@ -18,6 +18,10 @@ img = image.load_img(
 
 x = image.img_to_array(img)
 x = np.expand_dims(x, axis=0)
+x = x / 255.0
+
+print(type(x))
+print(x.shape)
 
 pred = model.predict(x)
 

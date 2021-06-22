@@ -19,7 +19,7 @@ model.compile(loss='binary_crossentropy',
                   optimizer = 'adam',
                   metrics=['accuracy'])
 
-filename = './validation/malignant/SOB_M_DC-14-3909-200-018.png'
+filename = './validation/benign/SOB_B_A-14-29960CD-200-007.png'
 
 img = image.load_img(
         filename,

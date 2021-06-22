@@ -1,0 +1,3 @@
+<class 'numpy.ndarray'>
+(1, 400, 400, 3)
+[[0.00011515]] ./validation/benign/SOB_B_A-14-29960CD-200-007.png is benign

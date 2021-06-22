@@ -19,7 +19,7 @@ img = image.load_img(
 x = image.img_to_array(img)
 x = np.expand_dims(x, axis=0)
 
-pred = model.predict(x[0:])
+pred = model.predict(x)
 
 if pred >= 0.5:
     print(pred, f'{filename} is malignant')

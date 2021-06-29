@@ -32,7 +32,7 @@ for filename in gen.filenames:
     img = img / 255.0
     images.append(img)
 
-images = np.vstack(images)
+images = np.vstack(images[0:2])
 classes = model.predict(images, verbose=True)
 print(classes)
 #

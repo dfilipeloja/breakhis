@@ -1,10 +1,11 @@
 import os
 
+import matplotlib.pyplot as plt
 import numpy as np
 from keras.models import load_model
 from keras.preprocessing import image
 from keras_preprocessing.image import ImageDataGenerator
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, plot_confusion_matrix
 
 model = load_model('./models/breakhis_vgg19_model.h5')
 
@@ -46,7 +47,9 @@ print('y_true', y_true)
 print('y_pred', y_pred)
 
 
-print(confusion_matrix(y_true, y_pred))
+cm = plot_confusion_matrix(model, y_true, y_pred)
+cm.figure_.suptitle("Confusion Matrix")
+plt.savefig("./results/vgg_confusion_matrix.png")
 #
 # print(classes)
 #

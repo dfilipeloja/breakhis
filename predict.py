@@ -26,6 +26,7 @@ images = []
 counter = 0
 
 for img in gen.filenames:
+    print(img)
     counter += 1
 
 print(counter)

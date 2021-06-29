@@ -24,7 +24,7 @@ counter = 0
 
 for filename in gen.filenames:
     img = image.load_img(
-            filename,
+            test_dir + '/' + filename,
             target_size=(400, 400))
 
     img = image.img_to_array(img)

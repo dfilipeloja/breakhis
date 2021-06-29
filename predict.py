@@ -1,11 +1,11 @@
-import os
-
 import matplotlib.pyplot as plt
 import numpy as np
 from keras.models import load_model
 from keras.preprocessing import image
 from keras_preprocessing.image import ImageDataGenerator
-from sklearn.metrics import confusion_matrix, plot_confusion_matrix
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
+from datetime import datetime
 
 model = load_model('./models/breakhis_vgg19_model.h5')
 
@@ -43,9 +43,22 @@ y_pred = model.predict(images)
 y_pred = (y_pred > 0.5)
 y_pred = np.vstack(y_pred)
 
-cm = plot_confusion_matrix(model, y_true, y_pred)
-cm.figure_.suptitle("Confusion Matrix")
-plt.savefig("./results/vgg_confusion_matrix.png")
+start = datetime.now()
+cm = confusion_matrix(model, y_true, y_pred)
+end = datetime.now()
+
+print('Start', start)
+print('End', end)
+
+ax = plt.subplot()
+sns.heatmap(cm, annot=True, fmt='g', ax=ax)
+ax.set_xlabel('Predicted labels')
+ax.set_ylabel('True labels')
+ax.set_title('Confusion Matrix')
+ax.xaxis.set_ticklabels(['benign', 'malignant'])
+ax.yaxis.set_ticklabels(['malignant', 'benign'])
+
+ax.savefig("./results/vgg_confusion_matrix.png")
 #
 # print(classes)
 #

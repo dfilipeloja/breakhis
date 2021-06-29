@@ -43,10 +43,6 @@ y_pred = model.predict(images)
 y_pred = (y_pred > 0.5)
 y_pred = np.vstack(y_pred)
 
-print('y_true', y_true)
-print('y_pred', y_pred)
-
-
 cm = plot_confusion_matrix(model, y_true, y_pred)
 cm.figure_.suptitle("Confusion Matrix")
 plt.savefig("./results/vgg_confusion_matrix.png")

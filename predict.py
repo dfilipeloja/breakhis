@@ -44,10 +44,11 @@ y_pred = (y_pred > 0.5)
 y_pred = np.vstack(y_pred)
 
 start = datetime.now()
-cm = confusion_matrix(model, y_true, y_pred)
-end = datetime.now()
-
 print('Start', start)
+
+cm = confusion_matrix(model, y_true, y_pred)
+
+end = datetime.now()
 print('End', end)
 
 ax = plt.subplot()

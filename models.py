@@ -1,7 +1,7 @@
-from keras.models import Sequential
-from keras.layers import Dense, Activation, Dropout, Flatten, Conv2D, MaxPooling2D
-from keras.layers.normalization import BatchNormalization
-from keras.applications.vgg19 import VGG19
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Activation, Dropout, Flatten, Conv2D, MaxPooling2D
+from tensorflow.keras.layers.normalization import BatchNormalization
+from tensorflow.keras.applications.vgg19 import VGG19
 from tensorflow import optimizers
 
 

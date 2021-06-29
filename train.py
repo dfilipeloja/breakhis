@@ -3,7 +3,7 @@ from array import array
 import matplotlib.pyplot as plt
 from models import Models
 from graphs import Graph
-from keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import os
 from sklearn.metrics import classification_report, confusion_matrix
 

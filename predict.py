@@ -38,8 +38,8 @@ for filename in gen.filenames:
 images = np.vstack(images[0:2])
 
 y_pred = model.predict(images)
-y_pred[y_pred > 0.3] = 1
-y_pred[y_pred <= 0.3] = 0
+
+y_pred = y_pred < 0.3
 
 print('y_true', y_true)
 print('y_pred', y_pred)

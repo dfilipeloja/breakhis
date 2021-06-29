@@ -3,6 +3,7 @@ import os
 import numpy as np
 from keras.models import load_model
 from keras.preprocessing import image
+from keras_preprocessing.image import ImageDataGenerator
 
 IMG_W = 400
 IMG_H = 400
@@ -14,17 +15,21 @@ model.compile(loss='binary_crossentropy',
                   metrics=['accuracy'])
 
 #filename = './validation/malignant/SOB_M_DC-14-3909-200-018.png'
-test_folder = './test'
+test_dir = './test'
+
+test_datagen = ImageDataGenerator()
+gen = test_datagen.flow_from_directory(
+    test_dir,
+    target_size=(IMG_W, IMG_W),
+    batch_size=30,
+    class_mode='binary'
+)
 
 images = []
 
-for img in os.listdir(test_folder):
-    img = os.path.join(test_folder, img)
-    img = image.load_img(img, target_size=(IMG_W, IMG_H))
-    img = image.img_to_array(img)
-    img = np.expand_dims(img, axis=0)
-    img = img / 255.0
-    images.append(img)
+for img in gen:
+    idx = (gen.batch_index - 1) * gen.batch_size
+    print(gen.filenames[idx: idx + gen.batch_size])
 
 print(images)
 # img = image.load_img(

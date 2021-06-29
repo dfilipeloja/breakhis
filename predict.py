@@ -37,9 +37,12 @@ for filename in gen.filenames:
 
 images = np.vstack(images[0:2])
 
-Y_pred = (model.predict(images, verbose=True)[:1] >= 0.3).astype(int)
+y_pred = model.predict(images)
+print('y_true', y_true)
+print('y_pred', y_pred)
 
-print(confusion_matrix(y_true, Y_pred))
+
+# print(confusion_matrix(y_true, Y_pred))
 #
 # print(classes)
 #

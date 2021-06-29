@@ -46,7 +46,7 @@ print('y_true', y_true)
 print('y_pred', y_pred)
 
 
-# print(confusion_matrix(y_true, Y_pred))
+print(confusion_matrix(y_true, y_pred))
 #
 # print(classes)
 #

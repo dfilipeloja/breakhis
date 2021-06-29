@@ -45,7 +45,7 @@ y_pred = model.predict(images)
 y_pred = (y_pred > 0.5)
 y_pred = np.vstack(y_pred)
 #
-cm = confusion_matrix(model, y_true, y_pred)
+cm = confusion_matrix(y_true, y_pred)
 
 end = datetime.now()
 print('End', end)

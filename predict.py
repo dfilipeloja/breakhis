@@ -57,5 +57,4 @@ for (i, j), z in np.ndenumerate(cm):
 ax.set_title('Confusion Matrix Recognition')
 ax.set_ylabel('True Label')
 ax.set_xlabel('Predicated Label')
-fig.colorbar()
 plt.savefig('results/confusion_matrix2.png')

@@ -38,13 +38,13 @@ for filename in gen.filenames:
 
 images = np.vstack(images)
 
+start = datetime.now()
+print('Start', start)
+
 y_pred = model.predict(images)
 
 y_pred = (y_pred > 0.5)
 y_pred = np.vstack(y_pred)
-
-start = datetime.now()
-print('Start', start)
 
 cm = confusion_matrix(model, y_true, y_pred)
 

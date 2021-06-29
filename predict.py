@@ -38,7 +38,6 @@ for filename in gen.filenames:
 images = np.vstack(images[0:2])
 
 Y_pred = model.predict(images, verbose=True)
-Y_pred = Y_pred >= 0.3
 
 print(confusion_matrix(y_true, Y_pred))
 #

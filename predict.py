@@ -39,7 +39,7 @@ images = np.vstack(images[0:2])
 
 y_pred = model.predict(images)
 
-y_pred = y_pred < 0.3
+y_pred = (y_pred > 0.5)
 
 print('y_true', y_true)
 print('y_pred', y_pred)

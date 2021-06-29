@@ -4,7 +4,8 @@ import numpy as np
 from keras.models import load_model
 from keras.preprocessing import image
 
-IMG_W, IMG_H = 400
+IMG_W = 400
+IMG_H = 400
 
 model = load_model('./models/breakhis_vgg19_model.h5')
 
@@ -19,12 +20,13 @@ images = []
 
 for img in os.listdir(test_folder):
     img = os.path.join(test_folder, img)
-    img = image.load_img(img, target_size=(400, 400))
+    img = image.load_img(img, target_size=(IMG_W, IMG_H))
     img = image.img_to_array(img)
     img = np.expand_dims(img, axis=0)
     img = img / 255.0
     images.append(img)
 
+print(images)
 # img = image.load_img(
 #         filename,
 #         target_size=(400, 400))
@@ -32,7 +34,7 @@ for img in os.listdir(test_folder):
 # x = image.img_to_array(img)
 # x = np.expand_dims(x, axis=0)
 # x = x / 255.0
-
+#
 # print(type(x))
 # print(x.shape)
 #

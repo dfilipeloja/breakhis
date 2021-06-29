@@ -33,7 +33,6 @@ for filename in gen.filenames:
     img = image.img_to_array(img)
     img = np.expand_dims(img, axis=0)
     img = img / 255.0
-    print(os.path.basename(filename))
     images.append(img)
 
 images = np.vstack(images[0:2])

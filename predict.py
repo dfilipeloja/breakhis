@@ -26,12 +26,14 @@ gen = test_datagen.flow_from_directory(
 )
 
 images = []
+counter = 0
 
 for img in gen:
     idx = (gen.batch_index - 1) * gen.batch_size
-    print(gen.filenames[idx: idx + gen.batch_size])
+    #print(gen.filenames[idx: idx + gen.batch_size])
+    counter += 1
 
-print(images)
+print(counter)
 # img = image.load_img(
 #         filename,
 #         target_size=(400, 400))

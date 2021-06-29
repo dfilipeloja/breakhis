@@ -25,11 +25,17 @@ gen = test_datagen.flow_from_directory(
 images = []
 counter = 0
 
-for img in gen.filenames:
-    print(img)
-    counter += 1
+for filename in gen.filenames:
+    img = image.load_img(
+            filename,
+            target_size=(IMG_H, IMG_W))
 
-print(counter)
+    img = image.img_to_array(img)
+    img = np.expand_dims(img, axis=0)
+    img = img / 255.0
+    images.append(img)
+
+print(images)
 # img = image.load_img(
 #         filename,
 #         target_size=(400, 400))

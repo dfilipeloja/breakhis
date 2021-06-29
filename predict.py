@@ -32,17 +32,9 @@ for filename in gen.filenames:
     img = img / 255.0
     images.append(img)
 
-print(images)
-# img = image.load_img(
-#         filename,
-#         target_size=(400, 400))
-#
-# x = image.img_to_array(img)
-# x = np.expand_dims(x, axis=0)
-# x = x / 255.0
-#
-# print(type(x))
-# print(x.shape)
+images = np.vstack(images)
+classes = model.predict_classes(images, 30)
+print(classes)
 #
 # pred = model.predict(x)
 #

@@ -23,7 +23,7 @@ gen = test_datagen.flow_from_directory(
 images = []
 counter = 0
 
-y_true = gen.classes[0:2]
+y_true = gen.classes
 
 for filename in gen.filenames:
     img = image.load_img(
@@ -35,7 +35,7 @@ for filename in gen.filenames:
     img = img / 255.0
     images.append(img)
 
-images = np.vstack(images[0:2])
+images = np.vstack(images)
 
 y_pred = model.predict(images)
 

@@ -33,7 +33,7 @@ for filename in gen.filenames:
     images.append(img)
 
 images = np.vstack(images)
-classes = model.predict(images)
+classes = model.predict(images, verbose=True)
 print(classes)
 #
 # pred = model.predict(x)

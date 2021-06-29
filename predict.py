@@ -19,18 +19,13 @@ test_dir = './test'
 
 test_datagen = ImageDataGenerator()
 gen = test_datagen.flow_from_directory(
-    test_dir,
-    target_size=(IMG_W, IMG_W),
-    batch_size=30,
-    class_mode='binary'
+    test_dir
 )
 
 images = []
 counter = 0
 
-for img in gen:
-    idx = (gen.batch_index - 1) * gen.batch_size
-    #print(gen.filenames[idx: idx + gen.batch_size])
+for img in gen.filenames:
     counter += 1
 
 print(counter)

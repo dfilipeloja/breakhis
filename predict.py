@@ -5,9 +5,6 @@ from keras.models import load_model
 from keras.preprocessing import image
 from keras_preprocessing.image import ImageDataGenerator
 
-IMG_W = 400
-IMG_H = 400
-
 model = load_model('./models/breakhis_vgg19_model.h5')
 
 model.compile(loss='binary_crossentropy',
@@ -28,7 +25,7 @@ counter = 0
 for filename in gen.filenames:
     img = image.load_img(
             filename,
-            target_size=(IMG_H, IMG_W))
+            target_size=(400, 400))
 
     img = image.img_to_array(img)
     img = np.expand_dims(img, axis=0)

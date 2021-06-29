@@ -51,11 +51,11 @@ end = datetime.now()
 print('End', end)
 
 fig, ax = plt.subplots()
-plt.matshow(cm)
+ax.matshow(cm)
 for (i, j), z in np.ndenumerate(cm):
     ax.text(j, i, '{:0.1f}'.format(z), ha='center', va='center')
 plt.title('Confusion Matrix Recognition')
 plt.colorbar()
 plt.ylabel('True Label')
 plt.xlabel('Predicated Label')
-plt.savefig('results/confusion_matrix1.png')
+plt.savefig('results/confusion_matrix2.png')

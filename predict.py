@@ -4,7 +4,6 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from sklearn.metrics import confusion_matrix
-import seaborn as sns
 from datetime import datetime
 
 model = load_model('./models/breakhis_vgg19_model.h5')

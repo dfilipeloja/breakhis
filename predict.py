@@ -37,34 +37,23 @@ for filename in gen.filenames:
 
 images = np.vstack(images)
 
-# start = datetime.now()
-# print('Start', start)
+start = datetime.now()
+print('Start', start)
 
 y_pred = model.predict(images)
 
-# y_pred = (y_pred > 0.5)
-# y_pred = np.vstack(y_pred)
+y_pred = (y_pred > 0.5)
+y_pred = np.vstack(y_pred)
 #
-# cm = confusion_matrix(model, y_true, y_pred)
-#
-# end = datetime.now()
-# print('End', end)
-#
-# ax = plt.subplot()
-# sns.heatmap(cm, annot=True, fmt='g', ax=ax)
-# ax.set_xlabel('Predicted labels')
-# ax.set_ylabel('True labels')
-# ax.set_title('Confusion Matrix')
-# ax.xaxis.set_ticklabels(['benign', 'malignant'])
-# ax.yaxis.set_ticklabels(['malignant', 'benign'])
-#
-# ax.savefig("./results/vgg_confusion_matrix.png")
-#
-# print(classes)
-#
-# pred = model.predict(x)
-#
-# if pred >= 0.5:
-#     print(pred, f'{filename} is malignant')
-# else:
-#     print(pred, f'{filename} is benign')
+cm = confusion_matrix(model, y_true, y_pred)
+
+end = datetime.now()
+print('End', end)
+
+fig = plt.figure()
+plt.matshow(cm)
+plt.title('Confusion Matrix Recognition')
+plt.colorbar()
+plt.ylabel('True Label')
+plt.xlabel('Predicated Label')
+plt.savefig('confusion_matrix.png')

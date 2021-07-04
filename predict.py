@@ -39,7 +39,9 @@ images = np.vstack(images)
 
 y_pred = model.predict(images)
 
-y_pred = (y_pred > 0.5)
+treshhold = 20
+
+y_pred = (y_pred > (treshhold / 100))
 y_pred = np.vstack(y_pred)
 
 now = str(datetime.now().strftime('%Y_%m_%d_%H_%M_%S'))
@@ -47,7 +49,7 @@ now = str(datetime.now().strftime('%Y_%m_%d_%H_%M_%S'))
 cm = confusion_matrix(y_true, y_pred)
 classification_report = classification_report(y_true, y_pred, target_names=['benign', 'malignant'])
 
-with open("classification_report_" + now + ".txt", "w") as text_file:
+with open("classification_report_" + now + "_th_" + treshhold + ".txt", "w") as text_file:
     print(classification_report, file=text_file)
 
 fig, ax = plt.subplots()
@@ -57,4 +59,4 @@ for (i, j), z in np.ndenumerate(cm):
 ax.set_title('Confusion Matrix Recognition')
 ax.set_ylabel('True Label')
 ax.set_xlabel('Predicated Label')
-plt.savefig('results/confusion_matrix_' + now + '.png')
+plt.savefig('results/confusion_matrix_' + now + '_th_' + treshhold + '.png')

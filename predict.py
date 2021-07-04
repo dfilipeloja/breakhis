@@ -42,13 +42,13 @@ y_pred = model.predict(images)
 y_pred = (y_pred > 0.5)
 y_pred = np.vstack(y_pred)
 
-now = datetime.now()
+now = str(datetime.now().strftime('%Y_%m_%d_%H_%M_%S'))
 
 cm = confusion_matrix(y_true, y_pred)
 classification_report = classification_report(y_true, y_pred, target_names=['benign', 'malignant'])
 
-with open("classification_report_" + now + ".txt", "w") as cr_file:
-    cr_file.write(classification_report)
+with open("classification_report_" + now + ".txt", "w") as text_file:
+    print(classification_report, file=text_file)
 
 fig, ax = plt.subplots()
 ax.matshow(cm)

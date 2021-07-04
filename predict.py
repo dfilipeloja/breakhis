@@ -3,7 +3,7 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, classification_report
 from datetime import datetime
 
 model = load_model('./models/breakhis_vgg19_model.h5')
@@ -37,18 +37,18 @@ for filename in gen.filenames:
 
 images = np.vstack(images)
 
-start = datetime.now()
-print('Start', start)
-
 y_pred = model.predict(images)
 
 y_pred = (y_pred > 0.5)
 y_pred = np.vstack(y_pred)
-#
-cm = confusion_matrix(y_true, y_pred)
 
-end = datetime.now()
-print('End', end)
+now = datetime.now()
+
+cm = confusion_matrix(y_true, y_pred)
+classification_report = classification_report(y_true, y_pred, target_names=['benign', 'malignant'])
+
+with open("classification_report_" + now + ".txt", "w") as cr_file:
+    cr_file.write(classification_report)
 
 fig, ax = plt.subplots()
 ax.matshow(cm)
@@ -57,4 +57,4 @@ for (i, j), z in np.ndenumerate(cm):
 ax.set_title('Confusion Matrix Recognition')
 ax.set_ylabel('True Label')
 ax.set_xlabel('Predicated Label')
-plt.savefig('results/confusion_matrix2.png')
+plt.savefig('results/confusion_matrix_' + now + '.png')

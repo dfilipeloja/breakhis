@@ -49,7 +49,7 @@ now = str(datetime.now().strftime('%Y_%m_%d_%H_%M_%S'))
 cm = confusion_matrix(y_true, y_pred)
 classification_report = classification_report(y_true, y_pred, target_names=['benign', 'malignant'])
 
-with open("classification_report_" + now + "_th_" + treshhold + ".txt", "w") as text_file:
+with open("classification_report_" + now + "_th_" + str(treshhold) + ".txt", "w") as text_file:
     print(classification_report, file=text_file)
 
 fig, ax = plt.subplots()
@@ -59,4 +59,4 @@ for (i, j), z in np.ndenumerate(cm):
 ax.set_title('Confusion Matrix Recognition')
 ax.set_ylabel('True Label')
 ax.set_xlabel('Predicated Label')
-plt.savefig('results/confusion_matrix_' + now + '_th_' + treshhold + '.png')
+plt.savefig('results/confusion_matrix_' + now + '_th_' + str(treshhold) + '.png')

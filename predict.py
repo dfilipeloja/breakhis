@@ -39,7 +39,7 @@ images = np.vstack(images)
 
 y_pred = model.predict(images)
 
-treshhold = 10
+treshhold = 50
 
 y_pred = (y_pred > (treshhold / 100))
 y_pred = np.vstack(y_pred)

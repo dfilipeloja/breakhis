@@ -82,28 +82,13 @@ def vgg19_train():
         class_mode='binary'
     )
 
-    # model_fit = vgg19_model.fit(
-    #     train_generator,
-    #     steps_per_epoch=num_train // batch_size,
-    #     epochs=epochs,
-    #     validation_data=test_generator,
-    #     validation_steps=num_test // batch_size
-    # )
-    #
-    # vgg19_model.save(os.path.join(models_dir, 'breakhis_vgg19_model.h5'))
-    # Graph.plot_accuracy_loss(model_fit, results_dir, 'vgg19_model')
-    Y_pred = vgg19_model.predict(test_generator, num_test // batch_size+1)
-    #y_pred = np.argmax(Y_pred, axis=1)
-    #cm = confusion_matrix(test_generator.classes, y_pred)
-    #cm = confusion_matrix()
-
-    #gera um array tipo:
-        # [[2 0 0]
-        #  [0 0 1]
-        #  [1 0 2]]
-    #procurar como converter isso para img
-
-#https://www.insightbig.com/post/credit-card-fraud-detection-with-machine-learning-in-python
+    model_fit = vgg19_model.fit(
+        train_generator,
+        steps_per_epoch=num_train // batch_size,
+        epochs=epochs,
+        validation_data=test_generator,
+        validation_steps=num_test // batch_size
+    )
 
 # alexnet_train()
 vgg19_train()

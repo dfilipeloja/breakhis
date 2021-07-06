@@ -5,8 +5,8 @@ The Breast Cancer Histopathological Image Classification (BreakHis) is composed 
 The [dataset](https://www.kaggle.com/ambarish/breakhis) was extracted from Kaggle.
 
 # **Install**
-`python3 -m venv .venv`
-`source .venv`
+`python3 -m venv .venv`\
+`source .venv`\
 `pip install -r requirements.txt`
 
 # **Train**

@@ -76,7 +76,7 @@ class Models:
         vggmodel.trainable = True
 
         for layer in vggmodel.layers:
-            layer.trainable = True if layer.name == 'block5_conv1' else False
+            layer.trainable = True if layer.name == 'block5_conv1' else False # fine tuning / transfer learning
 
         model = Sequential()
 
